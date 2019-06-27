@@ -3,11 +3,29 @@ import React, {Component} from 'react';
 // import './App.css';
 
 const App = () => {
-  return <div>H1!</div>
+  const profiles = [
+    { name: "Taro", age: 10},
+    { name: "Hahako", age: 5},
+    { name: "Saburo"}
+  ]
+  return (
+    <div>
+    {
+      profiles.map((profile, index) => {
+        return <User name={profile.name} age={profile.age} key={index} />
+      })
+    }
+    </div>
+  )
 }
 
+const User = (props) => {
+  return <div>Hi , I am {props.name}, and {props.age} years old! </div>
+}
 
-
+User.defaultProps = {
+  age: 1
+}
 
 // class App extends Component {
 //   render() {
